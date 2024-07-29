@@ -27,9 +27,25 @@ describe('anecdote reducer', () => {
       }
     }
     deepFreeze(state)
-
     const newState = anecdoteReducer(state, action)
 
     expect(newState[0].votes).toBe(1)
+  })
+
+  test.only('adds new anecdote', () => {
+    const state = []
+    const action = {
+      type: 'NEW_ANECDOTE',
+      payload: {
+        content: 'If it hurts, do it more often',
+        id: 0,
+        votes: 0
+      }
+    }
+    deepFreeze(state)
+    const newState = anecdoteReducer(state, action)
+
+    expect(newState).toHaveLength(1)
+    expect(newState).toContainEqual(action.payload)
   })
 })
