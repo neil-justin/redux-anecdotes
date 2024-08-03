@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { voteAnecdote } from '../reducers/anecdoteReducer'
 
 const Anecdote = ({ anecdote, handleClick }) => {
-  console.log('anecdote', anecdote)
   return (
     <div key={anecdote.id}>
       <div>
