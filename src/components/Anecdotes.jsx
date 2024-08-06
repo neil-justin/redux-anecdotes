@@ -30,7 +30,7 @@ const Anecdotes = () => {
   const descendinglySortedAnecdotes = [...anecdotes].sort((a, b) => b.votes - a.votes)
 
   const handleVoteButtonClick = (event, anecdote) => {
-    dispatch(voteAnecdote({ id: anecdote.id }))
+    dispatch(voteAnecdote(anecdote))
     dispatch(
       setNotification({ message: `you voted '${anecdote.content}'` })
     )
